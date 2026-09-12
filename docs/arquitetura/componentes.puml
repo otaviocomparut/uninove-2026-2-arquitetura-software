@@ -5,3 +5,4 @@ interface receberPedidoValidado
 PedidoService -- receberPedidoValidado
 PedidoRepository --( receberPedidoValidado
 @enduml
+
