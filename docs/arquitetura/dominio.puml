@@ -1,0 +1,68 @@
+@startuml
+title Classes do domínio da Rota Sul
+
+class Cliente {
+  +Long id
+  +String nome
+  +String email
+}
+
+class Pedido {
+  +Long id
+  +LocalDateTime criadoEm
+  +String situacao
+}
+
+class Remessa {
+  +Long id
+  +String codigoRastreio
+  +LocalDate previsaoEntrega
+}
+
+class Volume {
+  +Long id
+  +BigDecimal pesoKg
+  +String etiqueta
+}
+
+class Rota {
+  +Long id
+  +String origem
+  +String destino
+}
+
+class Veiculo {
+  +Long id
+  +String placa
+  +String tipo
+}
+
+class Motorista {
+  +Long id
+  +String nome
+  +String cnh
+}
+
+class Ocorrencia {
+  +Long id
+  +LocalDateTime dataHora
+  +String descricao
+}
+
+class Parceiro {
+  +Long id
+  +String nome
+  +String tipo
+}
+
+' Associações com multiplicidade
+Cliente "1" -- "0..*" Pedido
+Pedido "1" -- "1..*" Remessa
+Remessa "1" -- "1..*" Volume
+Rota "1" -- "1..*" Remessa
+Veiculo "1" -- "0..*" Remessa
+Motorista "1" -- "0..*" Remessa
+Remessa "0..*" -- "0..*" Ocorrencia
+Parceiro "1" -- "0..*" Remessa
+
+@enduml

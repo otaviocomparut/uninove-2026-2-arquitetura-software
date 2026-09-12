@@ -1,0 +1,55 @@
+@startuml
+title Pacotes da Rota Sul
+
+package "br.uni9.rotasul" {
+  package "pedido" {
+    package "pedido.web" as web {
+      class PedidoController
+    }
+    package "pedido.service" as service {
+      class PedidoService
+    }
+    package "pedido.repository" as repository {
+      interface PedidoRepository
+    }
+    package "pedido.domain" as domain {
+      class Pedido
+    }
+  }
+
+  package "expedicao" {
+    package "expedicao.web" {
+      class RemessaController
+    }
+    package "expedicao.service" {
+      class RemessaService
+    }
+    package "expedicao.repository" {
+      interface RemessaRepository
+    }
+    package "expedicao.domain" {
+      class Remessa
+    }
+  }
+
+  package "rastreamento" {
+    package "rastreamento.web" {
+      class OcorrenciaController
+    }
+    package "rastreamento.service" {
+      class OcorrenciaService
+    }
+    package "rastreamento.repository" {
+      interface OcorrenciaRepository
+    }
+    package "rastreamento.domain" {
+      class Ocorrencia
+    }
+  }
+}
+
+web ..> service
+service ..> repository
+service ..> domain
+repository ..> domain
+@enduml

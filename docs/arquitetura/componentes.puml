@@ -1,0 +1,7 @@
+@startuml
+component PedidoService
+component PedidoRepository
+interface receberPedidoValidado
+PedidoService -- receberPedidoValidado
+PedidoRepository --( receberPedidoValidado
+@enduml
